@@ -1,0 +1,10 @@
+﻿body .full.selectize-input {
+    height: 38px !important;
+}
+
+
+.dataTables_wrapper .dataTables_filter input {
+    padding: 8px !important;
+}
+
+

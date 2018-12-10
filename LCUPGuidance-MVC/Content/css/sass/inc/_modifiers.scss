@@ -1,0 +1,66 @@
+//* ---- BOX SHADOW ---*//
+.box-shadow {
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+//* ---- MARGINS --- *//
+.margin-zero {
+    margin: 0;
+}
+
+.margin-btm-0 {
+    margin-bottom: 0;
+}
+
+.margin-btm-20 {
+    margin-bottom: 20px;
+}
+.margin-btm-25 {
+    margin-bottom: 25px;
+}
+.margin-btm-40 {
+    margin-bottom: 40px;
+}
+
+.margin-top-40 {
+    margin-top: 40px;
+}
+
+//* --- IMAGE --- *//
+.img-block {
+    display: block;
+    width: 100%;
+}
+
+//* --- DISPLAY --- *//
+.display-table {
+    display: table;
+    margin: 0 auto;
+}
+
+.display-flex {
+    display: flex;
+}
+.display-flex.centered-content {
+    align-items: center;
+}
+.inline-block {
+    display: inline-block;
+}
+
+//* --- SEPARATOR / GAP --- *//
+.gap-20 {
+    padding-top: 20px;
+}
+
+.gap-45 {
+    padding-top: 45px;
+}
+
+
+//* --- Title + Copy ---*//
+.title-copy {
+    max-width: 600px;
+    margin: 15px auto;
+    display: table;
+    text-align: center;
+}

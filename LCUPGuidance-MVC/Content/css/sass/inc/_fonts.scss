@@ -1,0 +1,349 @@
+//* ---- Private Label Thermostat Font Styles --- *//
+//*font: font-style font-weight font-size/line-height font-family;*//
+$whitney: "Whitney SSm A","Whitney SSm B",Helvetica,Arial,sans-serif;
+$light: 300;
+$medium: 400;
+$semibold: 700;
+$book: 700;
+$normal: normal;
+$italic: italic;
+.font1 {
+    font: $normal $light 27px/38px $whitney;
+    color: $richblack;
+}
+
+.font2 {
+    font: $normal $light 14px/26px $whitney;
+    color: $richblack;
+}
+
+.font3 {
+    font: $normal $light 12px/18px $whitney;
+    color: $richblack;
+}
+
+.font4 {
+    font: $normal $medium 27px/38px $whitney;
+    color: $richblack;
+}
+
+.font5 {
+    font: $normal $semibold 12px/18px $whitney;
+    color: $green;
+}
+
+.font6 {
+    font: $normal $semibold 14px/20px $whitney;
+    color: $richblack;
+}
+
+.font7 {
+    font: $normal $semibold 14px/20px $whitney;
+    color: $green;
+}
+
+.font8 {
+    font: $italic $semibold 14px/20px $whitney;
+    color: $richblack;  
+}
+
+.font9 {
+    font: $normal $semibold 10px/10px $whitney;
+    color: $richblack;  
+    letter-spacing: 0.08em;
+}
+
+.font10 {
+    font: $normal $semibold 12px/12px $whitney;
+    color: $richblack;  
+    letter-spacing: 0.08em;
+}
+
+.font16 {
+    font: $normal 700 12px/12px $whitney;
+    color: $white;  
+    letter-spacing: 0.08em;
+}
+
+.font17 {
+    font: $normal $semibold 14px/18px $whitney;
+    color: $white;  
+}
+
+.font15 {
+    font: $normal $medium 16px/20px $whitney;
+    color: $white;  
+}
+
+.font20 {
+    font: $normal $light 14px/26px $whitney;
+    color: $textgrey;  
+}
+
+.font21 {
+    font: $normal $medium 14px/20px $whitney;
+    color: $textgrey;  
+}
+
+.font22 {
+    font: $italic $medium 14px/20px $whitney;
+    color: $red;  
+}
+
+.font23 {
+    font: $normal $light 21px/38px $whitney;
+    color: $richblack;  
+}
+
+.font24 {
+    font: $normal $medium 21px/38px $whitney;
+    color: $richblack;  
+}
+
+.font25 {
+    font: $normal $light 16px/26px $whitney;
+    color: $richblack;  
+}
+
+.font26 {
+    font: $normal $light 16px/26px $whitney;
+    color: $green;  
+}
+
+.font27 {
+    font: $normal $book 14px/30px $whitney;
+    color: $textgrey;  
+}
+
+.font28 {
+    font: $normal $light 12px/18px $whitney;
+    color: $white;  
+}
+
+.font29 {
+    font: $normal $light 10px/16px $whitney;
+    color: $richblack;  
+}
+
+.font32 {
+    font: $normal $light 14px/26px $whitney;
+    color: $red;  
+}
+
+.font33 {
+    font: $normal $light 12px/20px $whitney;
+    color: $red;  
+}
+
+.font34 {
+    font: $normal $light 14px/18px $whitney;
+    color: $green;  
+}
+
+.font35 {
+    font: $normal $semibold 12px/15px $whitney;
+    color: $richblack;  
+}
+
+.font36 {
+    font: $normal $semibold 11px/11px $whitney;
+    color: $richblack;  
+}
+
+.font37 {
+    font: $normal $semibold 16px/24px $whitney;
+    color: $richblack;  
+}
+
+.font38 {
+    font: $normal $medium 10px/10px $whitney;
+    color: $warmgrey;  
+}
+
+.font40 {
+    font: $normal $semibold 12px/12px $whitney;
+    color: $green;  
+}
+
+.font41 {
+    font: $normal $book 18px/24px $whitney;
+    color: $green;  
+}
+
+.font60 {
+    font: $normal $book 18px/26px $whitney;
+    color: $warmgrey;  
+}
+
+.font61 {
+    font: $normal $light 18px/18px $whitney;
+    color: $richblack;  
+}
+
+.font62 {
+    font: $normal $semibold 12px/12px $whitney;
+    color: $textgrey;  
+}
+
+.font63 {
+    font: $normal $light 16px/26px $whitney;
+    color: $pbc;  
+}
+
+.font64 {
+    font: $normal $semibold 12px/12px $whitney;
+    color: $pbc;  
+}
+
+.font65 {
+    font: $normal $light 16px/26px $whitney;
+    color: $white;  
+}
+
+.font66 {
+    font: $normal $semibold 14px/14px $whitney;
+    color: $pbc;  
+}
+
+.font67 {
+    font: $normal $light 27px/38px $whitney;
+    color: $warmgrey;  
+}
+
+.font68 {
+    font: $normal $book 16px/16px $whitney;
+    color: $textgrey;  
+}
+
+.font69 {
+    font: $normal $light 14px/22px $whitney;
+    color: $green;  
+}
+
+.font70 {
+    font: $normal $book 14px/22px $whitney;
+    color: $richblack;  
+}
+
+.font71 {
+    font: $normal $semibold 14px/26px $whitney;
+    color: $richblack;  
+}
+
+.font72 {
+    font: $normal $semibold 16px/26px $whitney;
+    color: $richblack;
+    letter-spacing: 0.08em;
+}
+
+.font73 {
+    font: $normal $semibold 16px/26px $whitney;
+    color: $richblack;  
+}
+
+.font74 {
+    font: $normal $medium 12px/18px $whitney;
+    color: $richblack;  
+}
+
+.font75 {
+    font: $normal $semibold 12px/18px $whitney;
+    color: $richblack;  
+}
+
+.font76 {
+    font: $normal $light 18px/25px $whitney;
+    color: $richblack;  
+}
+
+.font77 {
+    font: $normal $medium 18px/25px $whitney;
+    color: $richblack;  
+}
+
+.font78 {
+    font: $normal $semibold 12px/12px $whitney;
+    color: $pbc;  
+    letter-spacing: 0.08em;
+}
+
+.font79 {
+    font: $normal $light 12px/12px $whitney;
+    color: $richblack;  
+}
+
+.font80 {
+    font: $normal $semibold 16px/26px $whitney;
+    color: $green;  
+    letter-spacing: 0.08em;
+}
+
+.font81 {
+    font: $normal $light 12px/12px $whitney;
+    color: $green;  
+}
+
+.font82 {
+    font: $normal $medium 12px/12px $whitney;
+    color: $richblack;  
+}
+
+.font83 {
+    font: $normal $light 10px/16px $whitney;
+    color: $richblack;  
+}
+
+.font84 {
+    font: $normal $light 10px/16px $whitney;
+    color: $green;  
+}
+
+.font85 {
+    font: $normal $light 10px/16px $whitney;
+    color: $pbc;  
+}
+
+.font86 {
+    font: $normal $semibold 11px/16px $whitney;
+    color: $green;  
+}
+
+.font87 {
+    font: $normal $light 16px/26px $whitney;
+    color: $warmgrey;  
+}
+
+.font88 {
+    font: $normal $light 27px/38px $whitney;
+    color: $white;
+}
+
+.font89 {
+    font: $normal $medium 10px/10px $whitney;
+    color: $warmgrey;
+}
+
+.font90 {
+    font: $normal $medium 16px/20px $whitney;
+    color: $richblack;  
+}
+
+.font91 {
+    font: $normal $light 16px/26px $whitney;
+    color: $white;  
+}
+
+.font92 {
+    font: $normal $semibold 21px/21px $whitney;
+    color: $richblack;  
+}
+
+.font93 {
+    font: $normal $medium 10px/16px $whitney;
+    color: $white;  
+}
+
+.font94 {
+    font: $normal $medium 10px/16px $whitney;
+    color: $warmgrey;  
+}

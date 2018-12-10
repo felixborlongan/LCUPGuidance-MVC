@@ -1,0 +1,71 @@
+﻿@model List<LCUPGuidanceModel.User>
+@{
+    List<LCUPGuidanceModel.Status> statuses = ViewData["statuses"] as List<LCUPGuidanceModel.Status>;
+    ViewBag.Title = "User";
+}
+
+<div class="row">
+    <div class="rowheader">
+        <div class="col-xs-12">
+            <h2 id="HeaderTitle" class="font4" style="color:#f0f0f0; display: inline-block;"><i class="fa fa-user">&nbsp;</i>User</h2>
+            <div class="cta-buttons" style="display: inline-block; float: right; margin-right:100px">
+                <a id="btnAddUser" class="btn btn-white" href="#">
+                    <span class="text-wrapper font5">
+                        <i class="fa fa-plus-square" aria-hidden="true"></i>&nbsp;Add User
+                    </span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="DataTable-Sample">
+    <div class="C027-table">
+        <div class="padded-container" style="max-width:100%">
+            <div class="table-container">
+                <div style="padding-top: 9px;">
+                    <div class="cm-row" style="margin-left: 30px; margin-top: 8px;">
+                        <label for="filterUser">
+                            User Status:
+                        </label>
+                        <select id="statusID">
+                            <option value="">Select</option>
+                            @foreach (LCUPGuidanceModel.Status status in statuses)
+                            {
+                                <option value="@status.StatusID">@status.StatusName</option>
+                            }
+                        </select>
+                    </div>
+                    <table id="userTable" class="display" cellspacing="0" style="overflow:auto; width:98%; overflow:auto">
+                        <thead>
+                            <tr style="background-color: #f0f0f0;">
+                                <th style="color: #000;width:10%">ID</th>
+                                <th style="width:15%">Fullname</th>
+                                <th style="width:10%">Username</th>
+                                <th style="width:15%">Email Address</th>
+                                <th style="width:10%">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="userTbody">
+                            @foreach (LCUPGuidanceModel.User user in Model)
+                            {
+                                <tr>
+                                    <td><a href="#" class="a-edit" data-id="@user.UserID">@user.UserID</a></td>
+                                    <td>@user.Fullname</td>
+                                    <td>@user.Username</td>
+                                    <td>@user.EmailAddress</td>
+                                    <td>@user.Status.StatusName</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<br />
+
+<script src="~/Scripts/page/user.js"></script>

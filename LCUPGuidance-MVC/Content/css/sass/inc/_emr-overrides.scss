@@ -1,0 +1,79 @@
+//* JUMP NAVIGATION *//
+.jump-nav .navbar-nav li {
+	a {
+		border-bottom: 4px solid transparent;
+		transition: .25s border linear;
+		-webkit-transition: .25s border linear;
+		-moz-transition: .25s border linear;
+	}
+	&.active {
+		a {
+			border-bottom: 4px solid #FFF;
+		}
+	}
+}
+
+//* TABS C016 *//
+.C016-horizontal-tabs .tabs-header a {
+    border-bottom: 5px solid transparent;
+    &.selected {
+        border-bottom: 5px solid $green;
+    }
+}
+@media (max-width: 768px) {
+    .C016-horizontal-tabs .navbar-nav {
+        margin: 0
+    }
+}
+@media (min-width: 1280px) {
+    .global-header .sub-nav.commercial-sub-nav .products ul {
+        float: none;
+        width: 100%;
+
+    }
+    .global-header .main-nav>li {
+        position: relative;
+    }
+    .global-header .sub-nav.commercial-sub-nav {
+        width: 200px;
+        max-height: 500px;
+        overflow-y: auto;
+    }
+
+    .global-header .sub-nav.commercial-sub-nav .products:after {
+        background-color: none;
+    }
+    .global-header .main-nav .sub-nav {
+        min-height: auto;
+    }
+
+}
+
+/* C025 Custom */
+.C025-video-carousel .cm-teasable__headline {
+    color: #2d383f;
+    margin-top: 10px;
+    font-size: 1em;
+    line-height: 1.500em;
+    text-align: left;
+    white-space: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 75%;
+    max-height: 4.5em;
+    line-height: 1.500em;
+}
+
+/* C027 Table + DataTable*/
+.C027-table .dataTable tr:first-child td {
+    border-bottom-color: transparent;
+}
+
+.C027-table .dataTable td {
+    border-bottom: 1px solid transparent;
+}
+
+/* CEMs */
+.gray-background {
+    background: #f0f0f0 !important;
+}

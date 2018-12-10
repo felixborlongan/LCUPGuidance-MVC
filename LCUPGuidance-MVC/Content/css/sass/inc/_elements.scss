@@ -1,0 +1,46 @@
+//*--- WHITE RODGERS ---*//
+.white-rodgers-logo {
+    display: inline-block;
+    float: right;
+    height: 75px;
+    line-height: 75px;
+}
+
+//*--- ELEMENTS ---*//
+.test {
+	display: block;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+    color: #1F2023;
+    vertical-align: middle;
+    border: 1px solid gainsboro;
+    border-radius: 0px;
+    background-color: #efefef;
+    font-family: "Whitney SSm A","Whitney SSm B",Helvetica,Arial,sans-serif !important;
+    height: 37px;
+}
+
+input[type="checkbox"] {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+input.letter {
+    margin-right: 3px;
+}
+
+//*--- MODAL ---*//
+@media screen and (min-width: 768px) {
+    .modal-dialog {
+        left: auto;
+    }
+
+}
+
+//*--- PRELOADER ---*//
+.spinner-background {
+    top: 75px;
+}

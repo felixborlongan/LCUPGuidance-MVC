@@ -1,0 +1,32 @@
+//* ---- EMERSON COLOR PALETTE --- *//
+$green : #00aa7e;
+$grey: #f0f0f0;
+$white: #fff;
+$warmgrey: #c0c0c0;
+$coolgrey: #c4ced1;
+$bluegrey: #dee6ea;
+$textgrey: #808080;
+$blue: #7b9baa;
+$navy: #004b8d;
+$richblack: #2d383f;
+$black: #000;
+$offblack: #101010;
+$red: #d31245;
+$pbc: #2d383f;
+
+
+.bg-blue {
+    background: $blue;
+}
+
+.bg-richblack {
+    background: $richblack;
+}
+
+.bg-coolgrey {
+    background: $coolgrey;
+}
+
+.color-navy {
+    color: $navy;
+}

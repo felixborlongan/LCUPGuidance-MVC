@@ -1,0 +1,116 @@
+﻿@model LCUPGuidanceModel.User
+
+<style>
+    h4.pull-left.color-white.centered-content, label {
+        font-weight: 500;
+        font-family: whitney, Arial, sans-serif;
+    }
+
+    .form-group .form-control {
+        background-color: #fff;
+        border: 1px solid #D0D0D0;
+        padding: 7px;
+        border-radius: 3px;
+    }
+
+    button#btnYes.btn.btn-primary.btnModalFooter,
+    button#btnNo.btn.btn-primary.btnModalFooter {
+        height: 50px;
+        font-size: smaller;
+        font-weight: normal;
+    }
+</style>
+<form id="frmUser" class="form-horizontal" ondrag="return false;" ondragstart="return false;">
+    @Html.HiddenFor(model => model.UserID, new { @id = "UserId" })
+    @Html.HiddenFor(model => model.Operation, new { @id = "Operation"})
+
+    <div class="row form-group centered-content">
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+            <label for="FirstName">
+                <small style="font-weight: bolder; color: red">*</small>&nbsp;First Name
+            </label>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-8 col-lg-8">
+            @Html.TextBoxFor(model => model.Firstname, new { @id = "Firstname", @class = "form-control", @maxlength = "", @autocomplete = "off" })
+        </div>
+    </div>
+
+    <div class="row form-group centered-content">
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+            <label for="LastName">
+                <small style="font-weight: bolder; color: red">*</small>&nbsp;Middle Name
+            </label>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-8 col-lg-8">
+            @Html.TextBoxFor(model => model.Middlename, new { @id = "Middlename", @class = "form-control", @maxlength = "", @autocomplete = "off" })
+        </div>
+    </div>
+
+    <div class="row form-group centered-content">
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+            <label for="LastName">
+                <small style="font-weight: bolder; color: red">*</small>&nbsp;Last Name
+            </label>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-8 col-lg-8">
+            @Html.TextBoxFor(model => model.Lastname, new { @id = "Lastname", @class = "form-control", @maxlength = "", @autocomplete = "off" })
+        </div>
+    </div>
+
+    <div class="row form-group centered-content">
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+            <label for="EmailAddress">
+                <small style="font-weight: bolder; color: red">*</small>&nbsp;Username
+            </label>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-8 col-lg-8">
+            @Html.TextBoxFor(model => model.Username, new { @id = "Username", @class = "form-control", @maxlength = "", @autocomplete = "off" })
+        </div>
+    </div>
+
+    <div class="row form-group centered-content">
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+            <label for="Password">
+                <small style="font-weight: bolder; color: red">*</small>&nbsp;Password
+            </label>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-8 col-lg-8">
+            @Html.TextBoxFor(model => model.Password, new { @id="Password", @class = "form-control", placeholder = "Password", @type = "password" })
+        </div>
+    </div>
+
+    <div class="row form-group centered-content">
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+            <label for="EmailAddress">
+                <small style="font-weight: bolder; color: red">*</small>&nbsp;Email Address
+            </label>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-8 col-lg-8">
+            @Html.TextBoxFor(model => model.EmailAddress, new { @id = "EmailAddress", @class = "form-control", @maxlength = "", @autocomplete = "off" })
+        </div>
+    </div>
+
+
+    <div class="row form-group centered-content">
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+            <label class="pull-left" for="PositionTitleID">
+                <small style="font-weight: bolder; color: red">*</small>&nbsp;Status
+            </label>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-8 col-lg-8">
+            @Html.DropDownListFor(model => model.StatusID, Model.StatusList, "- Select -", new { @id = "cboStatus", data_val = false, @class = "form-control ddlFontColorBlack", @name = "StatusID" })
+        </div>
+    </div>
+
+    <div class="row form-group centered-content">
+        <div id="successContainer">
+            <p id="successMessage" class="margin-zero text-center color-white"></p>
+        </div>
+        <div id="validationContainer1">
+            <ul id="validateLI" class="danger">
+
+            </ul>
+        </div>
+    </div>
+
+</form>

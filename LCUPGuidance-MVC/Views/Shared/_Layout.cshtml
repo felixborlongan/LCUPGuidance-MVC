@@ -1,0 +1,169 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - LCUP Guidance MVC © Bikemania</title>
+
+    @*CSS Reference*@
+    <link href="/fonts/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Scripts/plugin/swiper-master/dist/swiper.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Scripts/plugin/DataTables-1.10.15/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/css/fonts.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/css/en-us.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/css/stylesheet.css" rel="stylesheet" type="text/css" />
+    <link rel="icon" type="image/ico" href="~/Content/images/favicon.jfif">
+    <link rel="shortcut icon" href="~/Content/images/favicon.jfif">
+
+    @*js Reference*@
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/core/components.js"></script>
+    <script src="~/Scripts/core/default.js"></script>
+    <script src="~/Scripts/plugin/swiper-master/dist/swiper.min.js"></script>
+    <script src="~/Scripts/plugin/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script src="~/Scripts/plugin/DataTables-1.10.15/js/jquery.dataTables.min.js"></script>
+    <script src="~/Scripts/global/modal.js"></script>
+    <script src="~/Scripts/plugin/selectize.js-master/dist/js/standalone/selectize.js"></script>
+
+</head>
+<body>
+    <div class="preloader-container">
+        <div class="preloader-icon">
+            <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+            <span id="preloader-text"></span>
+        </div>
+    </div>
+    <div id="main-wrapper" style="overflow-x: hidden;">
+        <div class="cm-row">
+            <header id="cm-header" class="global-header navbar navbar-fixed-top">
+                <nav class="utility-nav">
+                    <div class="padded-container">
+                        <ul id="utility-nav-sign" class="horizontal-list"></ul>
+                    </div>
+                    @*@{ if (customUser != null)
+                        {
+                            <div class="nav-sign-out" style="color:white">
+                                <a href="/logout" class="btn-2 btn-flat btn-rounded btn-icon-left btn-icon-signout cursor-pointer display-center color-white" style="padding-right: 50px;">
+
+                                    <span>@customUser.UserName.ToString() |</span>    Logout  <i class="fas fa-caret-down"></i>
+                                </a>
+                            </div>
+                        } }*@
+                </nav>
+                <nav class="main-header">
+                    <div class="main-header-content">
+                        <div class="navbar-header">
+
+                            <button type="button" class="navbar-toggle collapsed">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            @*<div class="navbar-brand emerson-logo-box">
+                                <a href="/home" classbox="" title="" class="emerson-logo__link">
+                                    <div class="">
+                                        <img class="cm-image emerson-logo__image" src="~/Content/images/emerson-logo-data-404.png" alt="Image of Emerson Logo" title="">
+                                    </div>
+                                    <span class="cm-visuallyhidden"></span>
+                                </a>
+                            </div>*@
+                        </div>
+                        <ul class="main-nav list-unstyled" id="main-nav">
+                            <li>
+                                <a style="cursor:default">Maintenance</a>
+                                <div class="sub-nav commercial-sub-nav collapse slide-in">
+                                    <ul class="list-unstyled">
+                                        <li><a class="" href="/User">User</a></li>
+                                    </ul>
+                                    <ul class="list-unstyled">
+                                        <li><a class="" href="/Student">Student</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </header>
+        </div>
+
+
+        <main id="main">
+            @*-- Lazy Loading --*@
+            <div class="" style="visibility:hidden" id="spinner-background">
+                <div class="" id="lazyload" data-options="large" role="progressbar" aria-valuetext="Loading…"></div>
+                <p class="loading-text">Loading</p>
+            </div>
+
+
+            @RenderBody()
+
+
+        </main>
+
+
+
+    </div>
+
+
+    <footer>
+        <div class="padded-container">
+            <h3 class="font15 margin-btm-25">Bikemania</h3>
+            <div class="row">
+                <div class="col-xs-12 col-sm-6" role="navigation">
+                    <div class="font89 e-copyright">©@DateTime.Now.Year Bikemania All rights reserved.</div>
+                </div>
+                @*<div class="col-xs-12 col-sm-6">
+                    <ul class="sub-nav horizontal-list font89" role="navigation">
+                        <li><a class="" href="http://www.emerson.com/en-us/privacy-notice" target="_blank">Privacy Notice</a></li>
+                        <li><a class="" href="http://www.emerson.com/en-us/sitemap" target="_blank">Sitemap</a></li>
+                        <li><a class="" href="http://www.emerson.com/en-us/terms-of-use" target="_blank">Terms of Use</a></li>
+                    </ul>
+                </div>*@
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript">
+        function copy_el(component) {
+            var Component = $("#" + component).html();
+            $('#copyComponent').html("Copy " + component);
+            $('#codeGenerated').val(Component);
+
+
+            //window.prompt("Copy to clipboard: Ctrl+C, Enter", Component);
+        }
+    </script>
+    <!-- Swiper JS -->
+    <!-- Initialize Swiper -->
+    <script>
+    var galleryTop = new Swiper('.gallery-top', {
+      spaceBetween: 10,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+    var galleryThumbs = new Swiper('.gallery-thumbs', {
+      spaceBetween: 10,
+      centeredSlides: true,
+      slidesPerView: 'auto',
+      touchRatio: 0.2,
+      slideToClickedSlide: true,
+    });
+    galleryTop.params.control = galleryThumbs;
+    galleryThumbs.params.control = galleryTop;
+
+    </script>
+
+    <!-- DATA Tables-->
+    <script>
+        $('#DataTable, #DataTableTypography').DataTable({
+            "stripeClasses": []
+        });
+    </script>
+
+    @* <script src="~/Scripts/core/copyClipboard-el.js"></script>*@
+</body>
+</html>

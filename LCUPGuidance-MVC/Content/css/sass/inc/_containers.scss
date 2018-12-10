@@ -1,0 +1,99 @@
+//* ---- CONTAINERS --- *//
+.component-container {
+    margin-top: -300px;
+    padding-top: 300px;
+}
+.component-main-container {
+    margin-top: -100px;
+    padding-top: 100px;
+}
+
+#main-wrapper {
+    min-height: calc(100vh - 200px);
+}
+
+body {
+    overflow-x: hidden;
+}
+@media (min-width: 1280px) {
+    body {
+        padding-top: 75px !important;
+    }
+}
+.container-padding {
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.heading-container {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.breadcrumb-container {
+    height: 50px;
+    line-height: 50px;
+    .breadcrumb-list {
+        padding-left: 0;
+        li {
+            display: inline-block;
+            color: $warmgrey;
+            padding-left: 12px;
+            padding-right: 12px;
+            &:after {
+                content: "|";
+                display: inline-block;
+                position: relative;
+                right: -13px;
+                color: $warmgrey;
+            }
+            &:first-of-type {
+                padding-left: 0;
+            }
+            &:last-of-type {
+                padding-right: 0;
+                &:after {
+                    display: none;
+                }
+            }
+        }
+        li.current-page,
+        li.active {
+            color: $white;
+        }
+    }
+}
+
+.main-container {
+    padding-top: 50px; 
+    padding-bottom: 70px;
+    margin: 0;
+}
+
+
+/* --- FOOTER --- */
+footer {
+    background: $black;
+    padding-top: 25px;
+    padding-bottom: 45px;
+    .sub-nav {
+        float: right;
+        li {
+            &:first-child a {
+                margin-left: 0;
+            }
+            &:last-child a {
+                margin-right: 0;
+            }
+        }
+        a {
+            color: $white;
+            margin-left: 25px;
+            margin-right: 25px;
+            &:hover {
+                color: $green;
+            }
+            
+        }
+    }
+}
