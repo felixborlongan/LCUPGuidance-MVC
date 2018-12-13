@@ -1,5 +1,5 @@
 ﻿$(document).ready(function () {
-    var userObj = {
+    var parentObj = {
         init: function () {
             var self = this;
 
@@ -7,15 +7,18 @@
             self.setEvents();
             self.setDataTableEvents();
         },
+        initializeSelect2: function () {
+            $("#cboChildrens").select2();
+        },
         declaration: function () {
             var self = this;
 
-            self.$btnAdd = $("#btnAddUser");
-            self.$userTable = $("#userTable");
-            self.$userTbody = $("#userTbody");
-            self.$userTrow = $("#userTbody tr");
+            self.$btnAdd = $("#btnAddParent");
+            self.$parentTable = $("#parentTable");
+            self.$parentTbody = $("#parentTbody");
+            self.$parentTrow = $("#parentTbody tr");
             self.$statusID = $("#statusID");
-            self.$frmUser = $("#frmUser");
+            self.$frmParent = $("#frmParent");
             self.$validateLI = $("#validateLI");
             self.$successMessage = $("#successMessage");
         },
@@ -31,39 +34,40 @@
                     afterShowEventFunc.push(function () {
                         $("#btnSave").on('click', function (e) {
                             e.preventDefault();
-                            self.processSaveUser();
+                            self.processSaveParent();
                         });
                         $("#btnCancel").on('click', function (e) {
                             e.preventDefault();
-                            self.refreshUserModalForm();
+                            self.refreshParentModalForm();
                             $('#modal').modal('toggle');
                         });
                     });
                     $(this).modalTask({
-                        title: "Add User",
+                        title: "Add Parent",
                         dataHtml: partialviewhtmltx,
                         eventsAfterShow: afterShowEventFunc
                     });
+                    self.initializeSelect2();
                 });
-                self.populateDataInUserModal('User/AddEditUser/0', deferred);
+                self.populateDataInParentModal('Parent/AddEditParent/0', deferred);
             });
         },
         setDataTableEvents: function () {
             var self = this;
 
-            self.$userTable.DataTable({
+            self.$parentTable.DataTable({
                 "preDrawCallback": function (settings, json) {
-                    $.each(self.$userTrow.find('.a-edit'), function (i, obj) {
+                    $.each(self.$parentTrow.find('.a-edit'), function (i, obj) {
                         $(obj).off('click').on('click', function (e) {
                             ShowLoading();
                             var dataID = $(this).data('id');
-                            self.editUser(dataID, "update");
+                            self.editParent(dataID, "update");
                         })
                     });
                 }
             });
         },
-        editUser: function (id, operation) {
+        editParent: function (id, operation) {
             var self = this;
             var deferred = $.Deferred();
             $.when(deferred).done(function (partialviewhtmltx) {
@@ -73,7 +77,7 @@
                 afterShowEventFunc.push(function () {
                     $("#btnSave").on('click', function (e) {
                         e.preventDefault();
-                        self.processSaveUser();
+                        self.processSaveParent();
                     });
                     $("#btnCancel").on('click', function (e) {
                         e.preventDefault();
@@ -83,14 +87,15 @@
                 });
 
                 $(this).modalTask({
-                    title: "Edit User",
+                    title: "Edit Parent",
                     dataHtml: partialviewhtmltx,
                     eventsAfterShow: afterShowEventFunc
                 });
+                self.initializeSelect2();
             });
-            self.populateDataInUserModal('User/AddEditUser/' + id + '?operation=' + operation, deferred);
+            self.populateDataInParentModal('Parent/AddEditParent/' + id + '?operation=' + operation, deferred);
         },
-        populateDataInUserModal: function (url, deferred) {
+        populateDataInParentModal: function (url, deferred) {
             $.ajax({
                 type: "GET",
                 url: url,
@@ -102,79 +107,78 @@
                 }
             });
         },
-        processSaveUser: function () {
+        processSaveParent: function () {
             var self = this;
 
             ShowLoading();
 
             $.ajax({
                 type: "POST",
-                url: "/User/Post",
-                data: $("#frmUser").serialize(),
+                url: "/Parent/Post",
+                data: $("#frmParent").serialize(),
                 //contentType: "application/json; charset=UTF-8",
                 dataType: "json",
                 success: function (response) {
                     if (response.successYn) {
                         self.$successMessage.text("Record successfully saved");
                         self.$successMessage.addClass("text-info");
-                        self.refreshUserModalForm();
+                        self.refreshParentModalForm();
                         $("#modal").modal("toggle");
                         var deferred = $.Deferred();
-                        self.rebuildUsersTable(response.users, deferred);
+                        self.rebuildParentsTable(response.parents, deferred);
                         $.when(deferred).done(function () {
                             HideLoading();
-                            self.setDatableEvents();
-                        })
+                            self.setDataTableEvents();
+                        });
                     }
                     else {
                         self.populateErrorInValidateLI(response.Errors);
-                        self.refreshUserModalForm();
+                        HideLoading();
                     }
                 }
             })
         },
-        refreshUserModalForm: function () {
+        rebuildParentsTable: function (parents, deferred) {
+            var self = this;
+
+            self.$parentTable.DataTable().destroy();
+            self.$parentTbody.empty();
+
+            $.each(parents, function (index, obj) {
+                var html = "<tr>" +
+                        "<td> <a href='#' class='a-edit' data-id='" + obj.ParentID + "'>" + obj.ParentID + "</a> </td>" +
+                        "<td>" + obj.Fullname + "</td>" +
+                        "<td>" + obj.EmailAddress + "</td>" +
+                        "<td>" + obj.Status.StatusName + "</td>" +
+                        "</tr>";
+                self.$parentTbody.append(html);
+            });
+            deferred.resolve();
+        },
+        refreshParentModalForm: function () {
             var self = this;
 
             $("#Firstname").val("");
             $("#Middlename").val("");
             $("#Lastname").val("");
-            $("#Password").val("");
             $("#EmailAddress").val("");
             $("#cboStatus").val("");
             $("#validateLI").empty();
         },
         populateErrorInValidateLI: function (errors) {
             var self = this;
-            
+
             $("#validateLI").empty();
             $.each(errors, function (index, obj) {
                 var html = "<li>" + obj + "</li>";
-                $("#validateLI").append(html).css({"color": "red"});
+                $("#validateLI").append(html).css({ "color": "red" });
             });
-        },
-        rebuildUsersTable: function (users, deferred) {
-            var self = this;
-
-            self.$userTable.DataTable().destroy();
-            self.$userTbody.empty();
-
-            $.each(users, function (index, obj) {
-                var html = "<tr>" +
-                        "<td> <a href='#' class='a-edit' data-id='" + obj.UserID + "'>" + obj.UserID + "</a> </td>" +
-                        "<td>" + obj.Fullname + "</td>" +
-                        "<td>" + obj.Username + "</td>" +
-                        "<td>" + obj.EmailAddress + "</td>" +
-                        "<td>" + obj.Status.StatusName + "</td>" +
-                        "</tr>";
-                self.$userTbody.append(html);
-            });
-            deferred.resolve();
         }
     }
-    var InitializeUserObj = function () {
-        var userObjTask = Object.create(userObj);
-        userObjTask.init();
+
+    var InitializeParentObj = function () {
+        var parentTaskObj = Object.create(parentObj);
+        parentTaskObj.init();
     }
-    InitializeUserObj();
-});
+    InitializeParentObj();
+}); 

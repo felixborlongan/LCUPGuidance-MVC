@@ -27,7 +27,16 @@ namespace LCUPGuidanceDAL
             catch { }
             return student;
         }
-
+        public Student FindByEmailAddress(string emailAddress)
+        {
+            Student student = null;
+            try
+            {
+                student = db.Student.Where(st => st.EmailAddress == emailAddress).FirstOrDefault();
+            }
+            catch { }
+            return student;
+        }
         public List<Student> GetAll()
         {
             List<Student> students = null;
@@ -88,6 +97,13 @@ namespace LCUPGuidanceDAL
                 dict["course"] = "Please enter course";
             if (student.StatusID == 0)
                 dict["status"] = "Please enter status";
+
+            if (new EmailAddressAttribute().IsValid(student.EmailAddress))
+            {
+                Student studentWithSameEmailAddress = FindByEmailAddress(student.EmailAddress);
+                if (studentWithSameEmailAddress != null && studentWithSameEmailAddress.EmailAddress != student.EmailAddress)
+                    dict["emailaddress"] = "Email address already exist.";
+            }
         }
     }
 }

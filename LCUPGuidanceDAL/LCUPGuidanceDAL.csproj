@@ -141,9 +141,11 @@
     <Compile Include="DBContext.cs" />
     <Compile Include="GenerateIEnumerableList.cs" />
     <Compile Include="Interfaces\IDataAccessLayer.cs" />
+    <Compile Include="ParentDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StatusDAL.cs" />
     <Compile Include="StudentDAL.cs" />
+    <Compile Include="StudentParentMappingDAL.cs" />
     <Compile Include="UserDAL.cs" />
   </ItemGroup>
   <ItemGroup>

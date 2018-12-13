@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace LCUPGuidanceModel
 {
@@ -22,6 +23,14 @@ namespace LCUPGuidanceModel
         public DateTime? Updated { get; set; }
         public int? UpdatedBy { get; set; }
 
+        [NotMapped]
+        public IEnumerable<SelectListItem> StatusList { get; set; }
+        [NotMapped]
+        public ICollection<StudentParentMapping> Childrens { get; set; }
+        [NotMapped]
+        public IEnumerable<SelectListItem> ChildrensList { get; set; }
+        [NotMapped]
+        public string Operation { get; set; }
         [NotMapped]
         public string Fullname
         {

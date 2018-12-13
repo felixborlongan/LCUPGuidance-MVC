@@ -22,5 +22,13 @@ namespace LCUPGuidanceDAL
                 Selected = st.StatusID == id
             });
         }
+        public IEnumerable<SelectListItem> GetChildrensList(List<int> childrenIds)
+        {
+            return db.Student.Select(st => new SelectListItem {
+                Value = st.StudentID.ToString(),
+                Text = st.Firstname + " " + st.Middlename + " " + st.Lastname,
+                Selected = childrenIds.Contains(st.StudentID)
+            });
+        }
     }
 }

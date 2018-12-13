@@ -199,6 +199,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ParentController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
@@ -220,6 +221,7 @@
     <Content Include="Content\css\normalize\normalize.css" />
     <Content Include="Content\css\sass\stylesheet.css" />
     <Content Include="Content\css\sass\stylesheet.min.css" />
+    <Content Include="Content\css\select2.css" />
     <Content Include="Content\css\Site.css" />
     <Content Include="Content\css\stylesheet.css" />
     <Content Include="Content\images\body_bg.jpg" />
@@ -294,6 +296,8 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\page\parent.js" />
+    <Content Include="Scripts\page\student.js" />
     <Content Include="Scripts\page\user.js" />
     <Content Include="Scripts\plugin\bootstrap-3.3.7-dist\css\bootstrap-theme.css" />
     <Content Include="Scripts\plugin\bootstrap-3.3.7-dist\css\bootstrap-theme.min.css" />
@@ -503,6 +507,7 @@
     <Content Include="Scripts\plugin\swiper-master\dist\swiper.min.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\select2.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -584,6 +589,8 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\User\_AddEditUser.cshtml" />
     <Content Include="Views\Student\Index.cshtml" />
+    <Content Include="Views\Parent\Index.cshtml" />
+    <Content Include="Views\Parent\_AddEditParent.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -62,7 +62,7 @@ namespace LCUPGuidanceDAL
         {
             bool successOperation = false;
 
-            Validate(user, ref dict, user.Operation);
+            Validate(user, ref dict);
 
             bool hasError = dict.Count > 0;
 
@@ -90,7 +90,7 @@ namespace LCUPGuidanceDAL
             }
             return successOperation;
         }
-        private void Validate(User user, ref Dictionary<string, string> dict, string operation)
+        private void Validate(User user, ref Dictionary<string, string> dict)
         {
             if (string.IsNullOrWhiteSpace(user.Firstname))
                 dict["firstname"] = "Please enter username";
@@ -107,10 +107,19 @@ namespace LCUPGuidanceDAL
             if (user.StatusID == 0)
                 dict["status"] = "Please enter status";
 
-            if (FindByUsername(user.Username) != null && operation == "add")
-                dict["username"] = "Username already exist";
-            if ((new EmailAddressAttribute().IsValid(user.EmailAddress)) && FindByEmail(user.EmailAddress) == null && operation == "add")
-                dict["emailaddress"] = "Email Address already exist";
+            if (string.IsNullOrWhiteSpace(user.Username))
+            {
+                User userWithSameUsername = FindByUsername(user.Username);
+                if (userWithSameUsername != null && userWithSameUsername.Username != user.Username)
+                    dict["username"] = "Username already exist.";
+            }
+            if (new EmailAddressAttribute().IsValid(user.EmailAddress))
+            {
+                User userWithSameEmailAddress = FindByEmail(user.EmailAddress);
+                if (userWithSameEmailAddress != null & userWithSameEmailAddress.EmailAddress != user.EmailAddress)
+                    dict["emailaddress"] = "Email Address already exist";
+
+            }
         }
     }
 }

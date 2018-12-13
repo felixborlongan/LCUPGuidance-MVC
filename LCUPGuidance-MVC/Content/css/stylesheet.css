@@ -803,7 +803,7 @@ body.modal-open, .modal-open .navbar-fixed-top, .modal-open .navbar-fixed-bottom
     background-color:#00aa7e;
 }
 
-#btnAddStudent, #btnAddUser {
+#btnAddStudent, #btnAddUser, #btnAddParent {
     position: relative;
     font-size: 14px;
     font-weight: 400;
